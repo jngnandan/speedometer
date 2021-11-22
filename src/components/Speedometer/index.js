@@ -29,7 +29,6 @@ class Speedometer extends Component {
         return (
             <div className="row vh-100">
                 <div className="col-12 text-center text-white align-self-center">
-                    <h1 className="mb-5 font-weight-bold">SPEEDOMETER</h1>
                     <h1>Speed is <span className="text-danger">{speedNumber}</span></h1>
                     <div className="col-12">
                         <p className="col-12 mt-5">Min Limit is 0mph, Max Limit is 200mph</p>
