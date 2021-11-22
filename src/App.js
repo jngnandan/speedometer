@@ -1,12 +1,15 @@
-import './App.css';
-import Speedometer from './components/Speedometer';
 
-const App = () => {
+
+import React from 'react'
+import Speedometer from './components/Speedometer'
+import './components/Speedometer/index.css'
+
+function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Speedometer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

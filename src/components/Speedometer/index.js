@@ -1,41 +1,47 @@
-import { Component } from 'react'
-import '../Speedometer/index.css'
 
+
+import React, { Component } from 'react'
+import '../Speedometer/speed.jpeg'
 
 class Speedometer extends Component {
-
     state = {
-        initialSpeed: 0
+        speedNumber: 0
     }
 
-
-
     render() {
-        const { initialSpeed } = this.state
+        const { speedNumber } = this.state
 
-        const clickIncrease = () => {
-            if (initialSpeed !== 200) {
-                this.setState({ initialSpeed: initialSpeed + 10 })
-            }
+        const accelerate = () => {
+            return (
+                speedNumber < 200 ? this.setState({ speedNumber: speedNumber + 10 })
+                    :
+                    this.setState({ speedNumber: speedNumber + 0 })
+
+            )
         }
 
-        const clickDecrease = () => {
-            if (initialSpeed !== 0) {
-                this.setState({ initialSpeed: initialSpeed - 10 })
-            }
+        const deccelerate = () => {
+            return (
+                speedNumber > 0 ? this.setState({ speedNumber: speedNumber - 10 })
+                    : this.setState({ speedNumber: speedNumber - 0 })
+            )
         }
-
         return (
-            <div className="container p-5 m-auto">
-                <h1 className="text-white">SPEEDOMETER</h1>
-                <p className="text-white">Max limit is 0mph, Max Limit is 200mph</p>
+            <div className="row vh-100">
+                <div className="col-12 text-center text-white align-self-center">
+                    <h1 className="mb-5 font-weight-bold">SPEEDOMETER</h1>
+                    <h1>Speed is <span className="text-danger">{speedNumber}</span></h1>
+                    <div className="col-12">
+                        <p className="col-12 mt-5">Min Limit is 0mph, Max Limit is 200mph</p>
+                        <button onClick={accelerate} className="btn btn-primary col-5 m-3">Accelerate</button>
+                        <button onClick={deccelerate} className="btn btn-outline-primary col-5 m-3">Apply Break</button>
+                    </div>
 
-                <h1 className="text-white">Speed is <span className="text-danger">{initialSpeed}</span></h1>
+                </div>
 
-                <button onClick={clickIncrease} className="btn btn-primary m-2">Accelerate</button>
-                <button onClick={clickDecrease} className="btn btn-outline-primary m-2">Apply Break</button>
             </div>
         )
     }
 }
+
 export default Speedometer
